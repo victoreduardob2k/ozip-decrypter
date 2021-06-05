@@ -14,9 +14,9 @@ on:
     types: [started]
 
 env:
-  FIRMWARE_LINK: https://download.c.realme.com/osupdate/RMX1851EX_11_OTA_1100_all_afysQxXkAd0p.ozip
-  FIRMWARE_NAME: RMX1851EX_11_OTA_1100_all_afysQxXkAd0p.ozip
-  FIRMWARE_ZIP_NAME: RMX1851EX_11_OTA_1100_all_afysQxXkAd0p
+  FIRMWARE_LINK: https://download.c.realme.com/osupdate/RMX2111PU_11_OTA_0350_all_1q5mbnWDlhVs.ozip
+  FIRMWARE_NAME: RMX2111PU_11_OTA_0350_all_1q5mbnWDlhVs.ozip
+  FIRMWARE_ZIP_NAME: RMX2111PU_11_OTA_0350_all_1q5mbnWDlhVs
   TZ: Asia/Kolkata
 
 jobs:
@@ -41,7 +41,7 @@ jobs:
              sudo -H pip install setuptools wheel docopt pycryptodome zip
              wget https://raw.githubusercontent.com/techyminati/oppo_ozip_decrypt/master/ozipdecrypt.py
              sudo python ozipdecrypt.py $FIRMWARE_NAME
-             zip -r $FIRMWARE_ZIP_NAME.zip ./out/*
+             zip -r RMX2111PU_11_OTA_0350_all_1q5mbnWDlhVs.zip ./out/*
 
        - name: Upload Decrypted Zip
          run: |
@@ -54,7 +54,7 @@ jobs:
               expect \"sftp> \"
               send \"cd ${{ secrets.SFDIR }}\r\"
               set timeout -1
-              send \"put $FIRMWARE_ZIP_NAME.zip\r\"
+              send \"put $RMX2111PU_11_OTA_0350_all_1q5mbnWDlhVs.zip\r\"
               expect \"Uploading\"
               expect \"100%\"
               expect \"sftp>\"
